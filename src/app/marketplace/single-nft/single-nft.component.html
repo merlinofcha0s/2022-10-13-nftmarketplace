@@ -6,6 +6,8 @@
       <div *ngIf="nft.isFavorite">❤️</div>
     </div>
     <app-nft-price [price]="nft.price"></app-nft-price>
+    <div>Mint date</div>
+    <div> {{nft.mint_date | date: 'YYYY-MM-dd'}} </div>
     <div class="d-flex flex-column justify-content-center mt-3">
       <app-favorite-nft class="mb-2" [isFavorite]="nft!.isFavorite"
                         (isFavoriteChange)="onFavoriteChange($event)"></app-favorite-nft>
