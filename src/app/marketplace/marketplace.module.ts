@@ -4,6 +4,8 @@ import {SingleNFTComponent} from './single-nft/single-nft.component';
 import {NftPriceComponent} from './single-nft/nft-price/nft-price.component';
 import {FavoriteNftComponent} from "./single-nft/favorite-nft/favorite-nft.component";
 import { ListNftComponent } from './list-nft/list-nft.component';
+import { DescriptionNftComponent } from './description-nft/description-nft.component';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -11,13 +13,12 @@ import { ListNftComponent } from './list-nft/list-nft.component';
     SingleNFTComponent,
     NftPriceComponent,
     FavoriteNftComponent,
-    ListNftComponent
-  ],
-  exports: [
-    ListNftComponent
+    ListNftComponent,
+    DescriptionNftComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class MarketplaceModule {
