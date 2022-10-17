@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Nft} from "../model/nfts.model";
+import {NftService} from "../nft.service";
+import {ActivatedRoute} from "@angular/router";
+import {filter, mergeMap} from "rxjs";
 
 @Component({
   selector: 'app-description-nft',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescriptionNftComponent implements OnInit {
 
-  constructor() { }
+  public nft: Nft = {};
+
+  constructor(private nftService: NftService, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    this.activatedRoute.params.pipe(
+      filter(params => params['contractid']),
+      mergeMap(params =>
+        this.nftService.getOne(params['blockchain'], params['contractid'], params['token']))
+    ).subscribe(res => {
+      if (res!.body !== null) {
+        this.nft = res.body!.nft;
+      }
+    });
   }
 
 }
