@@ -7,7 +7,8 @@ import { ListNftComponent } from './list-nft/list-nft.component';
 import { DescriptionNftComponent } from './description-nft/description-nft.component';
 import {RouterModule} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RegisterComponent} from "./register/register.component";
 
 
 @NgModule({
@@ -17,12 +18,14 @@ import {FormsModule} from "@angular/forms";
     FavoriteNftComponent,
     ListNftComponent,
     DescriptionNftComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MarketplaceModule {
